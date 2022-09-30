@@ -1,0 +1,36 @@
+.mixed-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;    
+}
+
+.text{
+    max-width: 50%;
+    text-align: justify;
+}
+
+.photo{
+    max-width: 100%;
+    
+}
+
+.text h1{
+    text-align: center;
+}
+
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .mixed-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+
+    
+  }
+
+
+
+
