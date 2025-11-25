@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Lensman - Delivery Report</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Navy */
+            --secondary-color: #34495e; /* Dark Grey */
+            --accent-color: #2980b9; /* Blue */
+            --success-color: #27ae60; /* Green */
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* Header Styles */
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-info h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-info p {
+            margin: 5px 0 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-badge {
+            background-color: var(--success-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Section Styles */
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .section-summary {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+
+        /* Tags and Utility */
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-right: 4px;
+            border: 1px solid transparent;
+        }
+
+        .tag-fe { background-color: #e3f2fd; color: #1565c0; border-color: #bbdefb; }
+        .tag-be { background-color: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; }
+        .tag-db { background-color: #fff3e0; color: #ef6c00; border-color: #ffe0b2; }
+
+        .effort-cell {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .print-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .print-btn:hover { background-color: #1f618d; }
+
+        /* Print Optimization */
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; padding: 0; width: 100%; max-width: 100%; }
+            .print-btn { display: none; }
+            h2 { margin-top: 20px; page-break-after: avoid; }
+            table { page-break-inside: auto; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-info">
+            <h1>Project Delivery Report</h1>
+            <p><strong>Project:</strong> Lensman | <strong>Client:</strong> Avensys</p>
+        </div>
+        <div class="status-badge">Completed</div>
+    </header>
+
+    <h2>1. Functional Change Requests (Billable Effort)</h2>
+    <p class="section-summary">The following modules required significant development effort across Frontend, Backend, and Database layers.</p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%;">ID</th>
+                <th style="width: 35%;">Feature Description</th>
+                <th style="width: 10%;">Requested By</th>
+                <th style="width: 15%;">Tech Impact</th>
+                <th style="width: 12%;">Effort</th>
+                <th style="width: 20%;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CAT-8</td>
+                <td><strong>Invoice Module Overhaul</strong><br>Restructured pose visibility, sizes, PDF contents, and layout.</td>
+                <td>Cust | Admin</td>
+                <td><span class="tag tag-fe">Front</span> <span class="tag tag-be">Back</span> <span class="tag tag-db">DB</span></td>
+                <td class="effort-cell">5 DAYS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-12</td>
+                <td><strong>Magnifier Feature</strong><br>Implementation of high-res image zoom functionality.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">3.5 DAYS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-7</td>
+                <td><strong>Email Confirmation Module</strong><br>Integrated order confirmation via email with PDF Invoice downloads.</td>
+                <td>Cust | Admin</td>
+                <td><span class="tag tag-be">Backend</span></td>
+                <td class="effort-cell">3 DAYS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-3</td>
+                <td><strong>Custom Loader</strong><br>Black circular background, centered white logo, bouncing animation.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">2 DAYS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-15</td>
+                <td><strong>Layout Restructuring</strong><br>Complete layout restructuring (Version 3).</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">2 DAYS</td>
+                <td>DONE</td>
+            </tr>
+             <tr>
+                <td>CAT-4</td>
+                <td><strong>Dynamic ChatBot</strong><br>Full interaction module.</td>
+                <td>Cust | Admin</td>
+                <td><span class="tag tag-fe">Front</span> <span class="tag tag-be">Back</span> <span class="tag tag-db">DB</span></td>
+                <td class="effort-cell">1.5 DAYS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-9</td>
+                <td><strong>Delivery Charge Logic</strong><br>Handling charges specifically for Digital/Soft Copies.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Front</span> <span class="tag tag-be">Back</span></td>
+                <td class="effort-cell">8 HOURS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-2</td>
+                <td><strong>FAQ Section</strong><br>Assist users with contact form queries.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Front</span> <span class="tag tag-be">Back</span></td>
+                <td class="effort-cell">7 HOURS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-6</td>
+                <td><strong>Preview Page Update</strong><br>Show all purchased items clearly.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">5 HOURS</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-10</td>
+                <td><strong>Video Upload</strong><br>Option to upload video to Landing Screens.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">1 HOUR</td>
+                <td>DONE</td>
+            </tr>
+            <tr>
+                <td>CAT-14</td>
+                <td><strong>Custom Packages</strong><br>Hide Price in Custom Packages.</td>
+                <td>Customer</td>
+                <td><span class="tag tag-fe">Frontend</span></td>
+                <td class="effort-cell">1 HOUR</td>
+                <td>DONE</td>
+            </tr>
+             <tr>
+                <td>CAT-11</td>
+                <td><strong>Student Invitation</strong><br>Module updates.</td>
+                <td>Admin</td>
+                <td>-</td>
+                <td class="effort-cell">1 HOUR</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Visual & UI Enhancements (CAT-1)</h2>
+    <p class="section-summary"><strong>Total CAT-1 Effort: 4.5 HOURS.</strong> These items focus on Post-Design Freeze changes requested via Figma.</p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Area</th>
+                <th style="width: 75%;">Enhancement Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Color Theme & Icons</strong></td>
+                <td>
+                    <ul>
+                        <li>Overall background updated to Dark Grey/Black & White theme.</li>
+                        <li><strong>Login Page:</strong> Replaced all Red colors with Blue.</li>
+                        <li><strong>Icons:</strong> Wishlist/Home/Download icons given round attractive background (Black/Grey states).</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Navigation & Buttons</strong></td>
+                <td>
+                    <ul>
+                        <li><strong>Cancel / Back:</strong> Red | <strong>Proceed / Add:</strong> Blue | <strong>Checkout:</strong> Green.</li>
+                        <li>Academic Year menu updated to Black.</li>
+                        <li>Back button (negative flow) standardized to Red.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Typography & Text</strong></td>
+                <td>
+                    <ul>
+                        <li>Header sizes (e.g., Academic Year) increased.</li>
+                        <li>Font Hierarchy: Header (Large) > Subheader > Topic > Content (Small).</li>
+                        <li>Message Update: "Please order before the due date" (clarified).</li>
+                    </ul>
+                </td>
+            </tr>
+             <tr>
+                <td><strong>Form Fields</strong></td>
+                <td>
+                    Separate fields added for: Villa No / Building Name, Landmark, Street Name.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Good Will Implementations</h2>
+    <p class="section-summary">The following features, fixes, and adjustments were provided at no additional cost to improve project quality.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Item Description</th>
+                <th>Audience</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Admin Data</strong></td>
+                <td>Added address, phone number, Class, and Division to Admin side and Order Details.</td>
+                <td>Admin</td>
+            </tr>
+            <tr>
+                <td><strong>Exports</strong></td>
+                <td>Added delivery type, class, division, and contact number to Excel exports.</td>
+                <td>Admin</td>
+            </tr>
+            <tr>
+                <td><strong>Layout</strong></td>
+                <td>Group photo section adjusted to horizontal layout (3 photos per row).</td>
+                <td>Customer</td>
+            </tr>
+            <tr>
+                <td><strong>Navigation</strong></td>
+                <td>Added "Back" button on Package Listing page.</td>
+                <td>Customer</td>
+            </tr>
+            <tr>
+                <td><strong>Text Fixes</strong></td>
+                <td>Changed "select maximum of one poses" to "one pose".</td>
+                <td>Customer</td>
+            </tr>
+            <tr>
+                <td><strong>UI Polish</strong></td>
+                <td>Changed "Create Account..!" to "Create Account" (removed punctuation).</td>
+                <td>Customer</td>
+            </tr>
+             <tr>
+                <td><strong>Terminology</strong></td>
+                <td>Renamed "Added Account" to "Add New Profile".</td>
+                <td>Customer</td>
+            </tr>
+             <tr>
+                <td><strong>Terminology</strong></td>
+                <td>Button change: "Preview" &rarr; "Review Order".</td>
+                <td>Customer</td>
+            </tr>
+             <tr>
+                <td><strong>Terminology</strong></td>
+                <td>Button change: "Proceed" &rarr; "Proceed To Delivery".</td>
+                <td>Customer</td>
+            </tr>
+             <tr>
+                <td><strong>Branding</strong></td>
+                <td>Updated LM (Lensman) logo as per provided files; aligned landing page logo.</td>
+                <td>Customer</td>
+            </tr>
+            <tr>
+                <td><strong>Code Maintenance</strong></td>
+                <td>Renamed variable <code>groupphototype-1</code> to <code>groupphoto-1</code>.</td>
+                <td>Dev/Internal</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; text-align: center; color: #888; font-size: 12px;">
+        <p>Report generated on November 25, 2025</p>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print Report / Save as PDF</button>
+</div>
+
+</body>
+</html>
